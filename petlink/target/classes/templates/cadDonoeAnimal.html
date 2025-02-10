@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserir Animal e Dono</title>
+</head>
+<body>
+    <h2>Cadastrar Dono</h2>
+    <form action="#" th:action="@{/caddono}" method="post" th:object="${dono}" id="cadDono" name="cadDono">
+        <label>Nome: </label><input type="text" name="nome" id="nome" th:field="*{nome}"><br>
+        <label>CPF: </label><input type="text" name="cpf" id="cpf" th:field="*{cpf}"><br>
+        <label>Endereço: </label><inp<!ut type="text" name="endereco" id="endereco" th:field="*{endereco}"><br>
+        <label>Telefone: </label><input type="text" name="telefone" id="telefone" th:field="*{telefone}"><br>
+        <button>Cadastrar Dono</button>
+    </form>
+
+    <h2>Cadastrar Animal</h2>
+    <form action="#" th:action="@{/cadanimal}" method="post" th:object="${animal}" id="cadAnimal" name="cadAnimal">
+        <label>Nome: </label><input type="text" name="nome" id="nome_animal" th:field="*{nome}"><br>
+        <label>Raça: </label><input type="text" name="raca" id="raca" th:field="*{raca}"><br>
+        <label>Idade: </label><input type="text" name="idade" id="idade" th:field="*{idade}"><br>
+        <button>Cadastrar Animal</button>
+    </form>
+</body>
+</html>

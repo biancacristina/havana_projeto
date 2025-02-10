@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Animais e Donos</title>
+</head>
+<body>
+    <h2>Lista de Animais</h2>
+
+    <form action="#" method="get">
+        <label>Filtrar por nome de animal: </label><input type="text" name="nome" />
+        <button>Filtrar</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Raça</th>
+                <th>Idade</th>
+                <th>Dono</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="animal : ${animais}">
+                <td th:text="${animal.nome}"></td>
+                <td th:text="${animal.raca}"></td>
+                <td th:text="${animal.idade}"></td>
+                <td th:text="${animal.dono.nome}"></td>
+                <td>
+                    <a th:href="@{/editarAnimal/{id}(id=${animal.id})}">Editar</a> |
+                    <a th:href="@{/deletarAnimal/{id}(id=${animal.id})}" onclick="return confirm('Excluir este animal?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Lista de Donos</h2>
+
+    <form action="#" method="get">
+        <label>Filtrar por nome de dono: </label><input type="text" name="nomeDono" />
+        <button>Filtrar</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Telefone</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="dono : ${donos}">
+                <td th:text="${dono.nome}"></td>
+                <td th:text="${dono.cpf}"></td>
+                <td th:text="${dono.endereco}"></td>
+                <td th:text="${dono.telefone}"></td>
+                <td>
+                    <a th:href="@{/editarDono/{id}(id=${dono.id})}">Editar</a> |
+                    <a th:href="@{/deletarDono/{id}(id=${dono.id})}" onclick="return confirm('Excluir este dono?')">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
