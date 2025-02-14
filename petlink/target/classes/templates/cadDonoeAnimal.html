@@ -10,7 +10,7 @@
     <form action="#" th:action="@{/caddono}" method="post" th:object="${dono}" id="cadDono" name="cadDono">
         <label>Nome: </label><input type="text" name="nome" id="nome" th:field="*{nome}"><br>
         <label>CPF: </label><input type="text" name="cpf" id="cpf" th:field="*{cpf}"><br>
-        <label>Endereço: </label><inp<!ut type="text" name="endereco" id="endereco" th:field="*{endereco}"><br>
+        <label>Endereço: </label><input type="text" name="endereco" id="endereco" th:field="*{endereco}"><br>
         <label>Telefone: </label><input type="text" name="telefone" id="telefone" th:field="*{telefone}"><br>
         <button>Cadastrar Dono</button>
     </form>
@@ -20,6 +20,12 @@
         <label>Nome: </label><input type="text" name="nome" id="nome_animal" th:field="*{nome}"><br>
         <label>Raça: </label><input type="text" name="raca" id="raca" th:field="*{raca}"><br>
         <label>Idade: </label><input type="text" name="idade" id="idade" th:field="*{idade}"><br>
+
+        <label>Dono:</label>
+        <select name="dono" th:field="*{dono.id}">
+            <option th:each="dono : ${donos}" th:value="${dono.id}" th:text="${dono.nome}"></option>
+        </select><br>
+
         <button>Cadastrar Animal</button>
     </form>
 </body>
